@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Button, Col, Divider, Layout, Row, Spin, Typography } from "antd";
 import { Masonry } from "masonic";
 import type { NextPage } from "next";
-import { getCats } from "../../api/getCats";
+import { getCats } from "../../lib/api/getCats";
 import { Container } from "../../components/shared/Container";
 import { Cat } from "../../types/Cat";
 import { LeftOutlined } from "@ant-design/icons";

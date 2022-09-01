@@ -3,7 +3,7 @@ import { Button, Col, Row, Select, Space, Spin, Typography } from "antd";
 import type { NextPage } from "next";
 import { Container } from "../components/shared/Container";
 import { useState } from "react";
-import { getBreeds } from "../api/getBreeds";
+import { getBreeds } from "../lib/api/getBreeds";
 import { Breed } from "../types/Breed";
 import Link from "next/link";
 
