@@ -1,6 +1,6 @@
 import { Layout } from "antd";
 import { Content } from "antd/lib/layout/layout";
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 import styled from "styled-components";
 
 const ContainerComponent = styled.div`
@@ -24,6 +24,10 @@ const ContainerComponent = styled.div`
     max-width: 1200px;
   }
 `;
+
+type ContainerProps = {
+  children: ReactNode;
+};
 
 export const Container: FC<ContainerProps> = ({ children }) => {
   return (

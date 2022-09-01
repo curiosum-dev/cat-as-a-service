@@ -40,9 +40,9 @@ const IndexPage: NextPage = () => {
               }}
             >
               {(data as Breed[]).map((breed) => (
-                <Option key={breed.id} value={breed.id}>
+                <Select.Option key={breed.id} value={breed.id}>
                   {breed.name}
-                </Option>
+                </Select.Option>
               ))}
             </Select>
             {selectedBreed !== null && selectedBreed.length !== 0 && (

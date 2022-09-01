@@ -7,20 +7,8 @@ import { Container } from "../../components/shared/Container";
 import { Cat } from "../../types/Cat";
 import { LeftOutlined } from "@ant-design/icons";
 import Link from "next/link";
-import { FC } from "react";
 import { useRouter } from "next/router";
-
-type MasonryImageProps = {
-  data: Cat;
-};
-
-const MasonryImage: FC<MasonryImageProps> = ({ data }) => {
-  return (
-    <div>
-      <img src={data.url} style={{ width: "100%" }} alt="cat image" />
-    </div>
-  );
-};
+import { MasonryImage } from "../../components/MasonryImage";
 
 const IndexPage: NextPage = () => {
   const { query } = useRouter();
