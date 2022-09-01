@@ -7,16 +7,25 @@ export default async function handler(
   res: NextApiResponse<Cat[]>
 ) {
   const breedId = req.query.id;
-  const { data } = await axios.get(
-    `https://api.thecatapi.com/v1/images/search?breed_ids=${breedId}&limit=10`,
-    {
-      headers: {
-        ...(process.env.API_KEY && {
-          "x-api-key": process.env.API_KEY,
-        }),
-      },
-    }
-  );
+
+  const data = (
+    await Promise.all(
+      [...Array(3)].map((_, index) => {
+        return axios.get(
+          `https://api.thecatapi.com/v1/images/search?breed_ids=${breedId}&limit=15&page=${index}`,
+          {
+            headers: {
+              ...(process.env.API_KEY && {
+                "x-api-key": process.env.API_KEY,
+              }),
+            },
+          }
+        );
+      })
+    )
+  )
+    .map(({ data }) => data)
+    .flat();
 
   const cats = data.map((cat: any) => ({
     url: cat.url,
