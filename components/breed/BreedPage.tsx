@@ -1,14 +1,14 @@
+import { LeftOutlined } from "@ant-design/icons";
 import { useQuery } from "@tanstack/react-query";
 import { Button, Col, Divider, Row, Spin, Typography } from "antd";
 import { Masonry } from "masonic";
-import { getCats } from "../../lib/api/getCats";
-import { Container } from "../../components/shared/Container";
-import { Cat } from "../../types/Cat";
-import { LeftOutlined } from "@ant-design/icons";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { MasonryImage } from "../../components/MasonryImage";
 import { FC } from "react";
+import { MasonryImage } from "../../components/MasonryImage";
+import { Container } from "../../components/shared/Container";
+import { getCats } from "../../lib/api/getCats";
+import { Cat } from "../../types/Cat";
 
 export const BreedPage: FC = () => {
   const { query } = useRouter();

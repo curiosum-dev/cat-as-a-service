@@ -26,7 +26,7 @@ export default async function handler(
   }));
 
   const moreCats =
-    cats.length === CATS_LIMIT
+    cats.length === 0 || cats.length >= CATS_LIMIT
       ? cats
       : Array.from({ length: CATS_LIMIT }, (_, i) => cats[i % cats.length]);
 

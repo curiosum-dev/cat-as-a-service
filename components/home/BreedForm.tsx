@@ -1,22 +1,14 @@
-import { useQuery } from "@tanstack/react-query";
-import { Button, Select, Space, Spin } from "antd";
+import { Button, Select, Space } from "antd";
 import Link from "next/link";
-import { FC, useState } from "react";
-import { getBreeds } from "../../lib/api/getBreeds";
+import React, { FC, useState } from "react";
 import { Breed } from "../../types/Breed";
-import { Container } from "../shared/Container";
 
-export const BreedForm: FC = () => {
-  const { data, isLoading } = useQuery(["breeds"], getBreeds);
+type BreedFormProps = {
+  breeds: Breed[];
+};
+
+export const BreedForm: FC<BreedFormProps> = ({ breeds }) => {
   const [selectedBreed, setSelectedBreed] = useState<string | null>(null);
-
-  if (isLoading) {
-    return (
-      <Container>
-        <Spin />
-      </Container>
-    );
-  }
 
   return (
     <Space>
@@ -29,13 +21,13 @@ export const BreedForm: FC = () => {
           minWidth: "200px",
         }}
       >
-        {(data as Breed[]).map((breed) => (
+        {breeds.map((breed) => (
           <Select.Option key={breed.id} value={breed.id}>
             {breed.name}
           </Select.Option>
         ))}
       </Select>
-      {selectedBreed !== null && selectedBreed.length !== 0 && (
+      {selectedBreed && (
         <Link href={{ pathname: `/breed/${selectedBreed}` }}>
           <Button type="primary" size="large">
             Show me cats

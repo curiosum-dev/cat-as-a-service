@@ -1,6 +1,6 @@
-import { Cat } from "../types/Cat";
-import { FC } from "react";
+import React, { FC } from "react";
 import styled from "styled-components";
+import { Cat } from "../types/Cat";
 
 const Image = styled.img`
   width: 100%;
