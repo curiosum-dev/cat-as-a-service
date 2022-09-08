@@ -21,7 +21,7 @@ describe("BreedForm", () => {
    * Unit tests
    */
 
-  it("button isn't visible", async () => {
+  it("button isn't visible by default", async () => {
     render(<BreedForm breeds={breeds} />);
 
     expect(screen.queryByRole("button")).toBe(null);
