@@ -10,7 +10,7 @@ const config = {
   },
   verbose: true,
   collectCoverage: true,
-  coveragePathIgnorePatterns: [],
+  coveragePathIgnorePatterns: ["./test/testUtils.tsx"],
   testEnvironment: "jsdom",
   globals: {
     "ts-jest": {
