@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 describe("Landing page", () => {
   it("Goes to cats with a specific breed page", () => {
     cy.visit("http://localhost:3000");

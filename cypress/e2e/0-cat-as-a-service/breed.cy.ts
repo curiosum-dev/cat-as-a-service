@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 describe("Cat's breed page", () => {
   it("Shows page with cats with a specific breed", () => {
     cy.visit("http://localhost:3000/breed/abys");

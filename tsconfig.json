@@ -18,7 +18,6 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "types": ["cypress", "@testing-library/cypress"],
     "baseUrl": ".",
   },
   "include": [
@@ -27,6 +26,9 @@
     "**/*.tsx"
   ],
   "exclude": [
+    "cypress",
+    "cypress.config.ts",
+    "cypress/**/*.cy.ts",
     "node_modules"
   ]
 }
