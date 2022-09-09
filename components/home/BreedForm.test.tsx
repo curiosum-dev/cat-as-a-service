@@ -1,5 +1,6 @@
 import React from "react";
-import { fireEvent, render, screen } from "../../test/testUtils";
+import userEvent from "@testing-library/user-event";
+import { render, screen } from "../../test/testUtils";
 import { BreedForm } from "./BreedForm";
 
 const breeds = [
@@ -29,12 +30,11 @@ describe("BreedForm", () => {
 
   it("button is visible after selecting list item", async () => {
     render(<BreedForm breeds={breeds} />);
+    const user = userEvent.setup();
 
-    fireEvent.change(screen.getByPlaceholderText("Select a breed"), {
-      target: {
-        value: "abys",
-      },
-    });
+    user.selectOptions(screen.getByPlaceholderText("Select a breed"), [
+      "Abyssinian",
+    ]);
 
     expect(await screen.findByRole("button")).toBeVisible();
   });
@@ -45,14 +45,13 @@ describe("BreedForm", () => {
 
   it("button becomes visible after selecting list item", async () => {
     render(<BreedForm breeds={breeds} />);
+    const user = userEvent.setup();
 
     expect(screen.queryByRole("button")).toBe(null);
 
-    fireEvent.change(screen.getByPlaceholderText("Select a breed"), {
-      target: {
-        value: "abys",
-      },
-    });
+    user.selectOptions(screen.getByPlaceholderText("Select a breed"), [
+      "Abyssinian",
+    ]);
 
     expect(await screen.findByRole("button")).toBeVisible();
   });
