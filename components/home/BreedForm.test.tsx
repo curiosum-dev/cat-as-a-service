@@ -10,13 +10,6 @@ const breeds = [
   { id: "acur", name: "American Curl" },
 ];
 
-const cats = new Map([
-  ["abys", ""],
-  ["aege", ""],
-  ["abob", ""],
-  ["acur", ""],
-]);
-
 describe("BreedForm", () => {
   /**
    * Unit tests
